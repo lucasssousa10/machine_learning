@@ -17,7 +17,7 @@ def plot_classification(inp, out, model):
     Z = model.predict(np.array([x_feat, y_feat]).T)
     Z = np.reshape(Z, X.shape)
     
-    ax.contour(X, Y, Z, levels=[0.5])
+    ax.contour(X, Y, Z)
 
     indx_color = 0
     for lbl in labels:

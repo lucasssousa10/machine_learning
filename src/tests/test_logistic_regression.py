@@ -4,9 +4,10 @@ from src.models.logistic_regression import LogisticRegression
 import numpy as np
 
 data = dataset.Dataset('./datasets/logistic_regression_data.csv')
+data.split()
 
 model = LogisticRegression()
-model.train(data.x, data.t)
-out = model.predict(data.x)
+model.train(data.x_train, data.t_train)
+out = model.predict(data.x_test)
 
 plot.plot_classification(data.x, data.t, model)

@@ -36,7 +36,7 @@ class LogisticRegression:
 
     def predict(self, input):
         y = sigmoid(np.dot(self.w, input.T))
-        return 1 - y[0]
+        return np.round(1 - y[0])
         
 
         
