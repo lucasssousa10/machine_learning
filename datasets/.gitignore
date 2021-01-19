@@ -1,1 +1,4 @@
 *.pyc
+./src/models/*.pyc
+./src/tests/*.pyc
+./src/utils/*.pyc
