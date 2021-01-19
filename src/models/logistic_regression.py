@@ -7,10 +7,11 @@ class LogisticRegression:
     m  = []
     iterations_irls = 15
 
-    def __init__(self, w0=[], S0=[], m0=[]):
+    def __init__(self, w0=[], S0=[], m0=[], iterations_irls=15):
         self.w = w0
         self.S = S0
         self.m = m0
+        self.iterations_irls = iterations_irls
 
     def train(self, input, output):
 
