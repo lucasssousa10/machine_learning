@@ -1,5 +1,5 @@
-import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.pyplot as plt
 
 def plot_classification(inp, out, model):    
     fig, ax = plt.subplots(1, 1, sharex=True)
