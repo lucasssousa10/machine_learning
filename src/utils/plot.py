@@ -5,7 +5,7 @@ def plot_classification(inp, out, model):
     fig, ax = plt.subplots(1, 1, sharex=True)
 
     labels = np.unique(out)
-    colors = ['#a6611a', '#80cdc1', '#f5f5f5', '#dfc27d', '#018571']
+    colors = ['#dfc27d', '#a6611a', '#f5f5f5', '#80cdc1', '#018571']
     
     delta = 0.0025
     border_gap = 0.1
@@ -17,7 +17,7 @@ def plot_classification(inp, out, model):
     Z = model.predict(np.array([x_feat, y_feat]).T)
     Z = np.reshape(Z, X.shape)
     
-    ax.contour(X, Y, Z)
+    ax.contourf(X, Y, Z, 20, cmap=plt.cm.BrBG, origin='lower')
 
     indx_color = 0
     for lbl in labels:
