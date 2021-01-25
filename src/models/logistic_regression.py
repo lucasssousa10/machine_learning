@@ -8,7 +8,8 @@ class LogisticRegression:
     m  = []
     H = []
     iterations_irls = 15
-
+    model_name = 'Regressao Logistica Bayesiana'
+    
     def __init__(self, w0=[], S0=[], m0=[], iterations_irls=15):
         self.w = w0
         self.S = S0
@@ -27,7 +28,7 @@ class LogisticRegression:
             R = sigmoid(np.dot(self.w, input.T))
             R = R * (1 - R)
             R = np.diag(R[0])
-            
+
             A = np.dot(input.T, R)
             A = np.dot(A, input) + np.linalg.inv(self.S)
 
@@ -43,13 +44,10 @@ class LogisticRegression:
         self.H = np.dot(np.dot(input.T, R_hat), input) + np.linalg.inv(self.S)
         
     def predict(self, input):
-
         output = []
-        
         for x in input:
             # Probit
             mu_a = np.dot(self.w, x)[0]
             s2   = np.dot(np.dot(x.T, np.linalg.inv(self.H)), x)
             output.append(sigmoid( mu_a * (1 + (mt.pi * s2)/8) ** 0.5))
-            
         return np.array(output)

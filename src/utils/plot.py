@@ -4,10 +4,14 @@ import matplotlib.pyplot as plt
 def plot_classification(inp, out, model):    
     fig, ax = plt.subplots(1, 1, sharex=True)
 
+    fig.suptitle(model.model_name, fontsize=16)
+    ax.set_xlabel("x")
+    ax.set_ylabel("y")
+
     labels = np.unique(out)
     colors = ['#dfc27d', '#a6611a', '#f5f5f5', '#80cdc1', '#018571']
     
-    delta = 0.0025
+    delta = 0.025
     border_gap = 0.1
     x = np.arange(min(inp[:, 0]) - border_gap, max(inp[:, 0]) + border_gap, delta)
     y = np.arange(min(inp[:, 1]) - border_gap, max(inp[:, 1]) + border_gap, delta)
@@ -25,5 +29,7 @@ def plot_classification(inp, out, model):
         ax.plot(inp[indx, 0], inp[indx, 1], 'o', color=colors[indx_color])
         indx_color = indx_color + 1
         
-    plt.show()
+    # plt.show()
+    plt.savefig('surface.pdf')  
+
 
