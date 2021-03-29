@@ -1,7 +1,18 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def plot_classification(inp, out, model):    
+def plot_data(inp, title="dataset"):
+    fig, ax = plt.subplots(1, 1, sharex=True)
+    fig.suptitle(title, fontsize=16)
+    ax.set_xlabel("x")
+    ax.set_ylabel("y")
+
+    colors = ['#dfc27d', '#a6611a', '#f5f5f5', '#80cdc1', '#018571']
+    indx_color = 0
+    ax.plot(inp[:, 0], inp[:, 1], 'o', color=colors[indx_color])
+    plt.show()
+
+def plot_classification(inp, out, model, save='file'):    
     fig, ax = plt.subplots(1, 1, sharex=True)
 
     fig.suptitle(model.model_name, fontsize=16)
@@ -29,7 +40,8 @@ def plot_classification(inp, out, model):
         ax.plot(inp[indx, 0], inp[indx, 1], 'o', color=colors[indx_color])
         indx_color = indx_color + 1
         
-    # plt.show()
-    plt.savefig('surface.pdf')  
-
-
+    if(save == 'file'):
+        plt.savefig('surface.pdf')  
+    else:
+        plt.show()
+    

@@ -44,7 +44,6 @@ class NaiveBayes:
         prob_c1 = np.prod(np.array(prob_c1), axis=0) * self.prior_c1
         prob_c2 = np.prod(np.array(prob_c2), axis=0) * self.prior_c2
         
-        probs = np.concatenate([[prob_c1], [prob_c2]])
-
-        return 1 - np.argmax(probs, axis=0)
+        probs = np.concatenate([[prob_c2], [prob_c1]])
+        return np.argmax(probs, axis=0)
         
