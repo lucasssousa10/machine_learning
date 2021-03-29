@@ -5,5 +5,5 @@ import numpy as np
 data = dataset.Dataset('./datasets/clustering_data.csv')
 data.split()    
 
-gmm = GmmMapClustering(5)
+gmm = GmmMapClustering(3)
 gmm.run(data.x)

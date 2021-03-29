@@ -10,7 +10,7 @@ class GmmMapClustering():
     centers = []
     pis = []
     covs = {}
-    def __init__(self, k, max_iter=100):
+    def __init__(self, k, max_iter=10):
         self.k = k
         self.max_iter = max_iter
 
@@ -125,6 +125,6 @@ class GmmMapClustering():
 
         cs = ax.contourf(X, Y, Z, cmap=cm.PuBu_r)
 
-        plt.show()
+        plt.savefig('surface.pdf') 
         
         
